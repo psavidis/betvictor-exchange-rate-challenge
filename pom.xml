@@ -13,11 +13,18 @@
 	<groupId>com.betvictor</groupId>
 	<artifactId>exchange-rate-challenge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-	<name>exchange-rate-challenge</name>
+    <name>exchange-rate-challenge</name>
 	<description>BetVictor Exchange Rate Challenge</description>
+    <modules>
+        <module>exchange-rate-client</module>
+        <module>exchange-rate-app</module>
+        <module>exchange-rate-client-impl</module>
+        <module>exchange-rate-domain</module>
+    </modules>
 
-	<properties>
+    <properties>
 		<java.version>17</java.version>
 	</properties>
 

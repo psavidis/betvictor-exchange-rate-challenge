@@ -19,7 +19,8 @@
 
         <!-- Module versions -->
         <com.betvictor.exchange-rate-client.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-client.version>
-        <com.betvictor.exchange-rate-client-impl.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-client-impl.version>
+        <com.betvictor.exchange-rate-client-impl.version>0.0.1-SNAPSHOT
+        </com.betvictor.exchange-rate-client-impl.version>
         <com.betvictor.exchange-rate-domain.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-domain.version>
 
     </properties>

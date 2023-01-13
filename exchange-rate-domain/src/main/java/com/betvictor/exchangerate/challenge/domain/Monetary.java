@@ -1,7 +1,6 @@
 package com.betvictor.exchangerate.challenge.domain;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 import java.util.Objects;
 
 /**
@@ -10,9 +9,9 @@ import java.util.Objects;
 public class Monetary {
 
     private final BigDecimal value;
-    private final Currency currency;
+    private final SupportedCurrency currency;
 
-    private Monetary(BigDecimal value, Currency currency) {
+    private Monetary(BigDecimal value, SupportedCurrency currency) {
         this.value = value;
         this.currency = currency;
     }
@@ -34,9 +33,8 @@ public class Monetary {
             throw new IllegalArgumentException("Monetary Value cannot be negative");
         }
 
-        var curr = Currency.getInstance(currency.name());
 
-        return new Monetary(value, curr);
+        return new Monetary(value, currency);
     }
 
     public static Monetary of(BigDecimal value, String currencyIsoCode) {
@@ -48,11 +46,11 @@ public class Monetary {
     }
 
     public String getCurrency() {
-        return currency.getCurrencyCode();
+        return currency.name();
     }
 
     @Override
     public String toString() {
-        return value + " " + currency.getSymbol();
+        return value + " " + currency.name();
     }
 }

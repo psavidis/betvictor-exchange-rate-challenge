@@ -1,2 +1,2 @@
-application:
-  default-datasource-provider: EXCHANGE_RATE_HOST # DataSourceClientType
+#application:
+#  default-datasource-provider: EXCHANGE_RATE_HOST # DataSourceClientType

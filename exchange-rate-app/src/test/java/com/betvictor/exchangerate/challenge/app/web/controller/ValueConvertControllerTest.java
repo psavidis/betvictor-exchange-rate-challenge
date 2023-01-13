@@ -9,6 +9,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static com.betvictor.exchangerate.challenge.client.DataSourceClientType.EXCHANGE_RATE_HOST;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
@@ -24,31 +27,35 @@ public class ValueConvertControllerTest {
     @Test
     void convertToCurrency_happyPath() {
         var request = new ConvertValueRequest(null, null, null);
-        controller.convertToCurrency(request);
+        var type = Optional.of(EXCHANGE_RATE_HOST);
 
-        verify(service, times(1)).convert(request);
+        controller.convertToCurrency(type, request);
+
+        verify(service, times(1)).convert(request, type);
     }
 
     @Test
     void convertToCurrency_throwException() {
-        when(controller.convertToCurrency(any(ConvertValueRequest.class))).thenThrow(RuntimeException.class);
+        when(service.convert(any(ConvertValueRequest.class), any(Optional.class))).thenThrow(RuntimeException.class);
 
-        assertThrows(RuntimeException.class, () -> controller.convertToCurrency(new ConvertValueRequest(null, null, null)));
+        assertThrows(RuntimeException.class, () -> controller.convertToCurrency(Optional.of(EXCHANGE_RATE_HOST), new ConvertValueRequest(null, null, null)));
     }
 
     @Test
     void convertToCurrencies_happyPath() {
+        var type = Optional.of(EXCHANGE_RATE_HOST);
         var request = new ConvertValueListRequest(null, null, null);
-        controller.convertToCurrencies(request);
 
-        verify(service, times(1)).convert(request);
+        controller.convertToCurrencies(type, request);
+
+        verify(service, times(1)).convert(request, type);
     }
 
     @Test
-    void convertToCurrencies_throwException() {
-        when(controller.convertToCurrencies(any(ConvertValueListRequest.class))).thenThrow(RuntimeException.class);
+    void convert_throwException() {
+        when(service.convert(any(ConvertValueListRequest.class), any(Optional.class))).thenThrow(RuntimeException.class);
 
-        assertThrows(RuntimeException.class, () -> controller.convertToCurrencies(new ConvertValueListRequest(null, null, null)));
+        assertThrows(RuntimeException.class, () -> controller.convertToCurrencies(Optional.of(EXCHANGE_RATE_HOST), new ConvertValueListRequest(null, null, null)));
     }
 
 }

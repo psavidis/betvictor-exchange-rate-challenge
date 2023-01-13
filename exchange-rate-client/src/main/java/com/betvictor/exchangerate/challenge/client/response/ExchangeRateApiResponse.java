@@ -1,4 +1,4 @@
-package com.betvictor.exchangerate.challenge.client;
+package com.betvictor.exchangerate.challenge.client.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

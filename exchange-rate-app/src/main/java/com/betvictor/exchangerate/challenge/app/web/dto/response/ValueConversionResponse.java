@@ -1,11 +1,9 @@
 package com.betvictor.exchangerate.challenge.app.web.dto.response;
 
-import java.math.BigDecimal;
+import com.betvictor.exchangerate.challenge.domain.Monetary;
 
 /**
  * Response DTO for Value Conversion Single Operation.
  */
-public record ValueConversionResponse(
-        BigDecimal value,
-        String currency) {
+public record ValueConversionResponse(Monetary monetary, Monetary conversion) {
 }

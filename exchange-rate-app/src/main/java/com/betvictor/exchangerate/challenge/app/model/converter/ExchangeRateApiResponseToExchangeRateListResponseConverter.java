@@ -17,11 +17,7 @@ public class ExchangeRateApiResponseToExchangeRateListResponseConverter implemen
     @Override
     public ExchangeRateListResponse convert(ExchangeRateApiResponse source) {
         var currencyFrom = SupportedCurrency.valueOf(source.base());
-        var currencyTo = SupportedCurrency.valueOf(source.base());
-        var value = BigDecimal.valueOf(source.rates().get(source.base()));
-
         source.rates().remove(currencyFrom.name());
-
 
         return new ExchangeRateListResponse(
                 currencyFrom,

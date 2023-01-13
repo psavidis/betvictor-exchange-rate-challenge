@@ -4,6 +4,9 @@ import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueList
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueRequest;
 import com.betvictor.exchangerate.challenge.domain.Monetary;
 
+/**
+ * Factory that creates {@link Monetary} from requests.
+ */
 public class MonetaryFactory {
 
     public static Monetary create(ConvertValueRequest request) {

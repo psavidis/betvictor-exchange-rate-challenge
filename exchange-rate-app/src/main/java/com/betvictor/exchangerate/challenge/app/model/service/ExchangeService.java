@@ -16,10 +16,13 @@ import org.springframework.core.convert.ConversionService;
 
 import java.util.Optional;
 
+/**
+ * Service that performs conversions & calculates exchange rates using {@link com.betvictor.exchangerate.challenge.client.DataSourceClient}.
+ */
 public class ExchangeService {
 
-    private final DataSourceClientFactory clientFactory;
-    private final ConversionService conversionService;
+    private DataSourceClientFactory clientFactory;
+    private ConversionService conversionService;
 
     public ExchangeService(DataSourceClientFactory clientFactory,
                            ConversionService conversionService) {

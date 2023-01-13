@@ -1,6 +1,7 @@
 package com.betvictor.exchangerate.challenge.app.web.controller;
 
-import com.betvictor.exchangerate.challenge.app.model.service.ExchangeRateService;
+import com.betvictor.exchangerate.challenge.app.model.service.ExchangeService;
+import com.betvictor.exchangerate.challenge.app.web.dto.request.ExchangeRateRequest;
 import com.betvictor.exchangerate.challenge.app.web.dto.response.ExchangeRateResponse;
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/exchange-rate")
 public class ExchangeRateController {
 
-    private final ExchangeRateService service;
+    private final ExchangeService service;
 
-    public ExchangeRateController(ExchangeRateService service) {
+    public ExchangeRateController(ExchangeService service) {
         this.service = service;
     }
 
     @GetMapping("/")
-    public ExchangeRateResponse getExchangeRate(SupportedCurrency fromCurrency, SupportedCurrency toCurrency) {
-        return service.getExchangeRate(fromCurrency, toCurrency);
+    public ExchangeRateResponse getExchangeRate(ExchangeRateRequest request) {
+        return service.getExchangeRate(request);
     }
 
     @GetMapping("/all")

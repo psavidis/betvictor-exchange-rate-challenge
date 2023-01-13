@@ -1,1 +1,4 @@
-/target
+/exchange-rate-app/target/
+/exchange-rate-client/target
+/exchange-rate-client-impl/target
+/exchange-rate-domain/target

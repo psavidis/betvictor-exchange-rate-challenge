@@ -50,6 +50,19 @@ public class Monetary {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Monetary monetary = (Monetary) o;
+        return Objects.equals(value, monetary.value) && currency == monetary.currency;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, currency);
+    }
+
+    @Override
     public String toString() {
         return value + " " + currency.name();
     }

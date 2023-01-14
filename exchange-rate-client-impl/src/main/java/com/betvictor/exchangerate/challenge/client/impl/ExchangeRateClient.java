@@ -20,7 +20,7 @@ public class ExchangeRateClient implements DataSourceClient {
 
     private static final String API_URL = "https://api.exchangerate.host/latest";
 
-    private final RestTemplate template;
+    private RestTemplate template;
 
     public ExchangeRateClient(RestTemplate template) {
         this.template = template;
@@ -76,12 +76,5 @@ public class ExchangeRateClient implements DataSourceClient {
         } catch (Exception e) {
             throw new ClientApiException("Failed to fetch response", e);
         }
-    }
-
-    public static void main(String[] args) {
-
-        var client = new ExchangeRateClient(new RestTemplate());
-
-        System.out.println(client.getAllExchangeRates(SupportedCurrency.EUR));
     }
 }

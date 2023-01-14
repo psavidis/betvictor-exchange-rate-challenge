@@ -43,14 +43,14 @@ public class ExchangeOperationRequestEndpointImpl implements ExchangeOperationRe
             throw new InvalidEventException(event, "Cannot process event with future timestamp!!!");
         }
 
-        var millisPassed = getMillisecondsPassesFromEvent(event);
+        var millisPassed = getMillisPassedFromEvent(event);
 
         if (millisPassed > EVENT_TIMEOUT_MILLIS) {
             throw new InvalidEventException(event, "Cannot process message due to timeout");
         }
     }
 
-    private long getMillisecondsPassesFromEvent(ExchangeOperationRequest event) {
+    private long getMillisPassedFromEvent(ExchangeOperationRequest event) {
         var timestamp = event.timestamp();
         var now = Instant.now();
 

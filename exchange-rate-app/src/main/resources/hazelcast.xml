@@ -3,32 +3,32 @@
            xsi:schemaLocation="http://www.hazelcast.com/schema/config
            http://www.hazelcast.com/schema/config/hazelcast-config-4.0.xsd">
 
-  <instance-name>hazelcast_instance</instance-name>
-  <cluster-name>dev</cluster-name>
+    <instance-name>hazelcast_instance</instance-name>
+    <cluster-name>dev</cluster-name>
 
-  <map name="EXCHANGE_RATE_HOST">
-    <time-to-live-seconds>120</time-to-live-seconds>
+    <map name="EXCHANGE_RATE_HOST">
+        <time-to-live-seconds>120</time-to-live-seconds>
 
-    <entry-listeners>
-      <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>
-    </entry-listeners>
-  </map>
+        <entry-listeners>
+            <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>
+        </entry-listeners>
+    </map>
 
-  <map name="FREE_CURRENCY_API">
-    <time-to-live-seconds>120</time-to-live-seconds>
+    <map name="FREE_CURRENCY_API">
+        <time-to-live-seconds>120</time-to-live-seconds>
 
-    <entry-listeners>
-      <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>
-    </entry-listeners>
-  </map>
+        <entry-listeners>
+            <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>
+        </entry-listeners>
+    </map>
 
-  <!-- Configures the discovery mode for multicast, aws ec2, kubernetes etc. -->
-  <network>
-    <join>
-       <multicast enabled="true" />
-      <!-- <aws enabled="true" />-->
-      <!-- <kubernetes enabled="true"/>-->
-    </join>
-  </network>
+    <!-- Configures the discovery mode for multicast, aws ec2, kubernetes etc. -->
+    <network>
+        <join>
+            <multicast enabled="true"/>
+            <!-- <aws enabled="true" />-->
+            <!-- <kubernetes enabled="true"/>-->
+        </join>
+    </network>
 
 </hazelcast>

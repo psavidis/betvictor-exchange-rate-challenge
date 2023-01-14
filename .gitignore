@@ -2,3 +2,5 @@
 /exchange-rate-client/target
 /exchange-rate-client-impl/target
 /exchange-rate-domain/target
+/exchange-rate-messaging/target
+/exchange-rate-app-client-example/target

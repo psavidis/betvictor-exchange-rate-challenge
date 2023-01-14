@@ -7,3 +7,5 @@ application:
       api-key: SdzEzQLNDwnz6mk9WzQIBVrwrIyimchw4bNAe23b
 
 logging.level.com.betvictor.exchangerate.challenge.app.common: DEBUG
+
+queue.name: exchange-operation-request

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Factory to create Monetary from Rate maps that contain entries currency-name / rate.
+ */
 public class MonetaryFactory {
 
     public static List<Monetary> createListFromRates(Map<String, Double> rates) {

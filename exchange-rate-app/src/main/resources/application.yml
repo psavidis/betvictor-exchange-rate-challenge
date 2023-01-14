@@ -1,7 +1,9 @@
 application:
   datasource-provider:
+    enable-caching: true
     default: EXCHANGE_RATE_HOST # DataSourceClientType
 
     free-currency-api:
       api-key: SdzEzQLNDwnz6mk9WzQIBVrwrIyimchw4bNAe23b
 
+logging.level.com.betvictor.exchangerate.challenge.app.common: DEBUG

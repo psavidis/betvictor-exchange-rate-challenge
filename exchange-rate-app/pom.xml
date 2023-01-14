@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.betvictor</groupId>
+        <artifactId>exchange-rate-challenge</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>exchange-rate-app</artifactId>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Module versions -->
+        <com.betvictor.exchange-rate-client.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-client.version>
+        <com.betvictor.exchange-rate-client-impl.version>0.0.1-SNAPSHOT
+        </com.betvictor.exchange-rate-client-impl.version>
+        <com.betvictor.exchange-rate-domain.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-domain.version>
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.betvictor</groupId>
+            <artifactId>exchange-rate-client</artifactId>
+            <version>${com.betvictor.exchange-rate-client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.betvictor</groupId>
+            <artifactId>exchange-rate-client-impl</artifactId>
+            <version>${com.betvictor.exchange-rate-client-impl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.betvictor</groupId>
+            <artifactId>exchange-rate-domain</artifactId>
+            <version>${com.betvictor.exchange-rate-domain.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>

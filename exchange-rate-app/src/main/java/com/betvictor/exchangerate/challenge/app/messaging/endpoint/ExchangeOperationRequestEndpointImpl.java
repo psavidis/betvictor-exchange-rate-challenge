@@ -2,7 +2,7 @@ package com.betvictor.exchangerate.challenge.app.messaging.endpoint;
 
 import com.betvictor.exchangerate.challenge.app.messaging.exception.InvalidEventException;
 import com.betvictor.exchangerate.challenge.messaging.ExchangeOperationRequestEndpoint;
-import com.betvictor.exchangerate.challenge.messaging.event.ExchangeOperationRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;

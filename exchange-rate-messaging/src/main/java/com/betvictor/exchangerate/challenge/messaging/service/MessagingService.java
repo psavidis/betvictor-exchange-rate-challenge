@@ -1,9 +1,11 @@
-package com.betvictor.exchangerate.challenge.messaging;
+package com.betvictor.exchangerate.challenge.messaging.service;
 
 import com.betvictor.exchangerate.challenge.client.DataSourceClientType;
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
-import com.betvictor.exchangerate.challenge.messaging.dto.ConversionRequest;
-import com.betvictor.exchangerate.challenge.messaging.dto.ExchangeRequest;
+import com.betvictor.exchangerate.challenge.messaging.MessagePublisher;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ConversionRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.Metadata;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -11,8 +13,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static com.betvictor.exchangerate.challenge.messaging.OperationType.CONVERSION;
-import static com.betvictor.exchangerate.challenge.messaging.OperationType.EXCHANGE_RATE;
+import static com.betvictor.exchangerate.challenge.messaging.dto.request.OperationType.CONVERSION;
+import static com.betvictor.exchangerate.challenge.messaging.dto.request.OperationType.EXCHANGE_RATE;
 
 /**
  * Service to be used for sending exchange & convert async requests.

@@ -1,4 +1,4 @@
-package com.betvictor.exchangerate.challenge.messaging;
+package com.betvictor.exchangerate.challenge.messaging.dto.request;
 
 import com.betvictor.exchangerate.challenge.client.DataSourceClientType;
 

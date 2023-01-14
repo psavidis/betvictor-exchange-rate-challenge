@@ -5,7 +5,7 @@ import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueRequ
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ExchangeRateRequest;
 import com.betvictor.exchangerate.challenge.client.DataSourceClientType;
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
-import com.betvictor.exchangerate.challenge.messaging.MessagingService;
+import com.betvictor.exchangerate.challenge.messaging.service.MessagingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;

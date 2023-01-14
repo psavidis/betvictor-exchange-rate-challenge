@@ -5,6 +5,9 @@ import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
 
 import java.util.List;
 
+/**
+ * Response DTO for list exchange rate requests that include list results.
+ */
 public record ExchangeRateListResponse(SupportedCurrency currencyFrom,
                                        List<Monetary> monetaryTo) {
 }

@@ -6,22 +6,28 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="exchange-rate-client-impl" />
+        <module name="exchange-rate-app-client-example" />
+        <module name="exchange-rate-messaging" />
         <module name="exchange-rate-client" />
+        <module name="exchange-rate-client-impl" />
         <module name="exchange-rate-domain" />
         <module name="exchange-rate-app" />
-        <module name="exchange-rate-docker" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="exchange-rate-docker" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="exchange-rate-app" options="-parameters" />
+      <module name="exchange-rate-app-client-example" options="-parameters" />
       <module name="exchange-rate-challenge" options="" />
       <module name="exchange-rate-client" options="-parameters" />
       <module name="exchange-rate-client-impl" options="-parameters" />
       <module name="exchange-rate-docker" options="-parameters" />
       <module name="exchange-rate-domain" options="-parameters" />
+      <module name="exchange-rate-messaging" options="-parameters" />
     </option>
   </component>
 </project>

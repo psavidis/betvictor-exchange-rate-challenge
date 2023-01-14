@@ -20,11 +20,13 @@
     <description>BetVictor Exchange Rate Challenge</description>
 
     <modules>
-        <module>exchange-rate-client</module>
         <module>exchange-rate-app</module>
-        <module>exchange-rate-client-impl</module>
         <module>exchange-rate-domain</module>
-        <module>exchange-rate-docker</module>
+        <module>exchange-rate-messaging</module>
+        <module>exchange-rate-client</module>
+        <module>exchange-rate-client-impl</module>
+
+        <module>exchange-rate-app-client-example</module>
     </modules>
 
     <properties>
@@ -63,12 +65,14 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>

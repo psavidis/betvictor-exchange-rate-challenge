@@ -7,11 +7,14 @@ import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 
-import java.util.List;
-import java.util.Objects;
+import java.math.BigDecimal;
+import java.util.*;
 
 /**
  * Cache-Aside Proxy for {@link DataSourceClient}.
+ * <p>
+ * Uses only getAllExchangeRates to reduces the number of queries against the APIs
+ * to calculate all the rest of operations.
  */
 public class CacheDataSourceClientProxy implements DataSourceClient {
 
@@ -35,7 +38,20 @@ public class CacheDataSourceClientProxy implements DataSourceClient {
 
     @Override
     public ExchangeRateApiResponse getExchangeRate(SupportedCurrency fromCurrency, SupportedCurrency toCurrency) {
-        return null;
+        var response = getAllExchangeRates(fromCurrency);
+
+        var rates = response.rates();
+        var toCurrencyName = toCurrency.name();
+        var newRates = Map.of(
+                toCurrencyName, rates.get(toCurrencyName)
+        );
+
+        return new ExchangeRateApiResponse(
+                response.success(),
+                response.base(),
+                response.date(),
+                newRates
+        );
     }
 
     @Override
@@ -52,22 +68,46 @@ public class CacheDataSourceClientProxy implements DataSourceClient {
         return (ExchangeRateApiResponse) result.get();
     }
 
-    private String getCacheKey(SupportedCurrency currency) {
-        return CACHE_NAME.replace(CACHE_NAME_CURRENCY_PARAM, currency.name());
-    }
-
     @Override
     public ConversionResponse convert(Monetary monetary, SupportedCurrency toCurrency) {
-        return null;
+        return convert(monetary, List.of(toCurrency));
     }
 
     @Override
     public ConversionResponse convert(Monetary monetary, List<SupportedCurrency> toCurrencies) {
-        return null;
+        var currency = SupportedCurrency.valueOf(monetary.getCurrency());
+        var rateResponse = getAllExchangeRates(currency);
+        var conversions = getConversions(monetary, toCurrencies, rateResponse);
+
+        return new ConversionResponse(monetary, conversions);
     }
 
     @Override
     public DataSourceClientType getType() {
         return delegate.getType();
+    }
+
+    private String getCacheKey(SupportedCurrency currency) {
+        return CACHE_NAME.replace(CACHE_NAME_CURRENCY_PARAM, currency.name());
+    }
+
+    private List<Monetary> getConversions(Monetary monetary, List<SupportedCurrency> toCurrencies, ExchangeRateApiResponse response) {
+        var rates = new HashMap<>(response.rates());
+        rates.remove(monetary.getCurrency());
+
+        var results = new ArrayList<Monetary>();
+        rates.forEach((currency, rate) -> {
+            var cur = SupportedCurrency.valueOf(currency);
+            if (!toCurrencies.contains(cur)) {
+                return;
+            }
+
+            var value = monetary.getValue().multiply(BigDecimal.valueOf(rate));
+
+            results.add(Monetary.of(
+                    value, SupportedCurrency.valueOf(currency)
+            ));
+        });
+        return results;
     }
 }

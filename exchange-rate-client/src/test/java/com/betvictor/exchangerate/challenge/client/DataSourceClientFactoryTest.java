@@ -29,7 +29,7 @@ public class DataSourceClientFactoryTest {
 
     @BeforeEach
     void init() {
-        factory = new DataSourceClientFactory(List.of(mockClient, mockClient2), defaultType);
+        factory = DataSourceClientFactory.of(List.of(mockClient, mockClient2), defaultType);
     }
 
     @Test

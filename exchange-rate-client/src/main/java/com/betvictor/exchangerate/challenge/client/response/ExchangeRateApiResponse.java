@@ -2,6 +2,7 @@ package com.betvictor.exchangerate.challenge.client.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
@@ -14,5 +15,5 @@ public record ExchangeRateApiResponse(
         Boolean success,
         String base,
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd") Date date,
-        Map<String, Double> rates) {
+        Map<String, Double> rates) implements Serializable {
 }

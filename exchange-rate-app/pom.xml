@@ -23,6 +23,7 @@
         </com.betvictor.exchange-rate-client-impl.version>
         <com.betvictor.exchange-rate-domain.version>0.0.1-SNAPSHOT</com.betvictor.exchange-rate-domain.version>
 
+        <com.hazelcast.hazelcast-all.version>4.2.6</com.hazelcast.hazelcast-all.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,13 @@
             <artifactId>exchange-rate-domain</artifactId>
             <version>${com.betvictor.exchange-rate-domain.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- Hazelcast -->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-all</artifactId>
+            <version>${com.hazelcast.hazelcast-all.version}</version>
         </dependency>
 
     </dependencies>

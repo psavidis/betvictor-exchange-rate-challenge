@@ -1,10 +1,10 @@
 package com.betvictor.exchangerate.challenge.client.impl;
 
-import com.betvictor.exchangerate.challenge.client.response.ConversionResponse;
 import com.betvictor.exchangerate.challenge.client.DataSourceClient;
 import com.betvictor.exchangerate.challenge.client.DataSourceClientType;
-import com.betvictor.exchangerate.challenge.client.response.ExchangeRateApiResponse;
 import com.betvictor.exchangerate.challenge.client.exception.ClientApiException;
+import com.betvictor.exchangerate.challenge.client.response.ConversionResponse;
+import com.betvictor.exchangerate.challenge.client.response.ExchangeRateApiResponse;
 import com.betvictor.exchangerate.challenge.domain.Monetary;
 import com.betvictor.exchangerate.challenge.domain.MonetaryFactory;
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;

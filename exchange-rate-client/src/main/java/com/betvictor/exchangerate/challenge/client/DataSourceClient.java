@@ -13,9 +13,11 @@ import java.util.List;
 public interface DataSourceClient {
 
     ExchangeRateApiResponse getExchangeRate(SupportedCurrency fromCurrency, SupportedCurrency toCurrency);
+
     ExchangeRateApiResponse getAllExchangeRates(SupportedCurrency currency);
 
     ConversionResponse convert(Monetary monetary, SupportedCurrency toCurrency);
+
     ConversionResponse convert(Monetary monetary, List<SupportedCurrency> toCurrencies);
 
     DataSourceClientType getType();

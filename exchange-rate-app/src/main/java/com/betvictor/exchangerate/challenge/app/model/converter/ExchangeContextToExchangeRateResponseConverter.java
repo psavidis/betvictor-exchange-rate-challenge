@@ -17,7 +17,9 @@ public class ExchangeContextToExchangeRateResponseConverter implements Converter
         var response = source.response();
         var currencyFrom = SupportedCurrency.valueOf(response.base());
         var currencyTo = source.request().toCurrency();
-        var value = BigDecimal.valueOf(response.rates().get(currencyTo.name()));
+
+        var val = response.rates().get(currencyTo.name());
+        var value = val != null ? BigDecimal.valueOf(val) : BigDecimal.valueOf(-1);
 
         return new ExchangeRateResponse(
                 currencyFrom,

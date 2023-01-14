@@ -10,7 +10,7 @@ import java.util.Optional;
  */
 public class DataSourceClientFactory {
 
-    private final DataSourceClientType defaultClientType;
+    private DataSourceClientType defaultClientType;
     private final Map<DataSourceClientType, DataSourceClient> mappings = new HashMap<>();
 
     public DataSourceClientFactory(List<DataSourceClient> clients, DataSourceClientType defaultClientType) {

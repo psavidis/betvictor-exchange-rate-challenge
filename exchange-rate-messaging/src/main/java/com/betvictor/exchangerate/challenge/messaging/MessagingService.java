@@ -14,6 +14,9 @@ import java.util.UUID;
 import static com.betvictor.exchangerate.challenge.messaging.OperationType.CONVERSION;
 import static com.betvictor.exchangerate.challenge.messaging.OperationType.EXCHANGE_RATE;
 
+/**
+ * Service to be used for sending exchange & convert async requests.
+ */
 @Service
 public class MessagingService {
 

@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * DTO to pass data around for Conversion requests.
+ */
 public record ConversionRequest(BigDecimal value,
                                 SupportedCurrency currency,
                                 List<SupportedCurrency> toCurrencies) implements Serializable {

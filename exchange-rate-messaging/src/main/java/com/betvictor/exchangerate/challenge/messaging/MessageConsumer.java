@@ -4,22 +4,24 @@ import com.betvictor.exchangerate.challenge.messaging.event.ExchangeOperationReq
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
+/**
+ * Component for the actual consumption of messages from RabbitMQ from respective queue.
+ * <p>
+ * Messages that Fail will be ignored for now. In real life, they could be re-routed
+ * to a dead-letter queue.
+ */
 @Component
 public class MessageConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(MessageConsumer.class);
 
     private final ExchangeOperationRequestEndpoint endpoint;
-    private final RabbitTemplate rabbitTemplate;
 
-    public MessageConsumer(ExchangeOperationRequestEndpoint endpoint,
-                           RabbitTemplate rabbitTemplate) {
+    public MessageConsumer(ExchangeOperationRequestEndpoint endpoint) {
         this.endpoint = endpoint;
-        this.rabbitTemplate = rabbitTemplate;
     }
 
     @RabbitListener(queues = {"${queue.name}"})

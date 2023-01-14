@@ -5,7 +5,7 @@ package com.betvictor.exchangerate.challenge.client;
  */
 public enum DataSourceClientType {
     EXCHANGE_RATE_HOST,
-    FIXER_IO;
+    FREE_CURRENCY_API;
 
     public static DataSourceClientType getDefault() {
         return EXCHANGE_RATE_HOST;

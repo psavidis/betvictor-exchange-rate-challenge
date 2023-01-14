@@ -1,2 +1,7 @@
 application:
-  default-datasource-provider: EXCHANGE_RATE_HOST # DataSourceClientType
+  datasource-provider:
+    default: EXCHANGE_RATE_HOST # DataSourceClientType
+
+    free-currency-api:
+      api-key: SdzEzQLNDwnz6mk9WzQIBVrwrIyimchw4bNAe23b
+

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.betvictor.exchangerate.challenge.client.DataSourceClientType.EXCHANGE_RATE_HOST;
-import static com.betvictor.exchangerate.challenge.client.DataSourceClientType.FIXER_IO;
+import static com.betvictor.exchangerate.challenge.client.DataSourceClientType.FREE_CURRENCY_API;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -23,7 +23,7 @@ public class DataSourceClientFactoryTest {
     private DataSourceClientFactory factory;
 
     private DataSourceClient mockClient = mockClient(EXCHANGE_RATE_HOST);
-    private DataSourceClient mockClient2 = mockClient(FIXER_IO);
+    private DataSourceClient mockClient2 = mockClient(FREE_CURRENCY_API);
 
     private DataSourceClientType defaultType = EXCHANGE_RATE_HOST;
 
@@ -42,10 +42,10 @@ public class DataSourceClientFactoryTest {
 
     @Test
     void getClient_happyPath() {
-        var result = factory.getClient(Optional.of(FIXER_IO));
+        var result = factory.getClient(Optional.of(FREE_CURRENCY_API));
 
         assertNotNull(result);
-        assertEquals(FIXER_IO, result.getType());
+        assertEquals(FREE_CURRENCY_API, result.getType());
     }
 
     private DataSourceClient mockClient(DataSourceClientType type) {

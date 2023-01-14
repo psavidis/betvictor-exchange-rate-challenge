@@ -16,7 +16,7 @@ public class ExchangeRateServiceConfiguration {
 
     @Bean
     public DataSourceClientFactory dataSourceClientFactory(
-            @Value("${application.default-datasource-provider:EXCHANGE_RATE_HOST}") DataSourceClientType defaultClientType,
+            @Value("${application.datasource-provider.default:EXCHANGE_RATE_HOST}") DataSourceClientType defaultClientType,
             List<DataSourceClient> clients
     ) {
         return new DataSourceClientFactory(clients, defaultClientType);

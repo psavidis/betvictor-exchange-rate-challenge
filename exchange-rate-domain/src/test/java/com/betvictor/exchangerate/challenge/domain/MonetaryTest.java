@@ -51,6 +51,6 @@ public class MonetaryTest {
     void toString_() {
         var result = Monetary.of(BigDecimal.valueOf(3.14), "EUR");
 
-        assertEquals("3.14 €", result.toString());
+        assertEquals("3.14 EUR", result.toString());
     }
 }

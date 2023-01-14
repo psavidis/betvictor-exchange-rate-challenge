@@ -1,6 +1,7 @@
 package com.betvictor.exchangerate.challenge.client;
 
 import org.springframework.cache.CacheManager;
+import org.springframework.retry.support.RetryTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,10 @@ public class DataSourceClientFactory {
         this.mappings = mappings;
     }
 
+    /**
+     * Creates a {@link DataSourceClientFactory} from a list of clients and the default client type
+     * to use as a fallback.
+     */
     public static DataSourceClientFactory of(List<DataSourceClient> clients,
                                              DataSourceClientType defaultClientType) {
         var mappings = new HashMap<DataSourceClientType, DataSourceClient>();
@@ -29,22 +34,26 @@ public class DataSourceClientFactory {
         return new DataSourceClientFactory(defaultClientType, mappings);
     }
 
+    /**
+     * Creates a {@link DataSourceClientFactory} with caching & retry options.
+     */
     public static DataSourceClientFactory of(
             List<DataSourceClient> clients,
             DataSourceClientType defaultClientType,
             CacheManager cacheManager,
-            boolean enableCaching) {
+            RetryTemplate retryTemplate,
+            boolean enableCaching
+    ) {
+        var configuredClients = getConfiguredClient(clients, cacheManager, retryTemplate, enableCaching);
 
-        if (enableCaching) {
-            var cachedClients = clients.stream()
-                    .map(c -> CacheDataSourceClientProxy.of(c, cacheManager))
-                    .map(c -> (DataSourceClient) c)
-                    .toList();
+        return of(configuredClients, defaultClientType);
+    }
 
-            return of(cachedClients, defaultClientType);
-        }
-
-        return of(clients, defaultClientType);
+    private static List<DataSourceClient> getConfiguredClient(List<DataSourceClient> clients, CacheManager cacheManager, RetryTemplate retryTemplate, boolean enableCaching) {
+        return DataSourceClientsBuilder.newBuilder(clients)
+                .withCaching(cacheManager, enableCaching)
+                .withRetries(retryTemplate, enableCaching)
+                .build();
     }
 
     public DataSourceClient getClient(Optional<DataSourceClientType> type) {

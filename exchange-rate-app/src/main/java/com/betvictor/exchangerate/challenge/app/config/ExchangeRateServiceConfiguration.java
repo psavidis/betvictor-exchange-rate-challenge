@@ -10,6 +10,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.retry.support.RetryTemplate;
 
 import java.util.List;
 
@@ -21,9 +22,10 @@ public class ExchangeRateServiceConfiguration {
             @Value("${application.datasource-provider.default:EXCHANGE_RATE_HOST}") DataSourceClientType defaultClientType,
             @Value("${application.datasource-provider.enable-caching:false}") boolean enableCaching,
             @Autowired(required = false) CacheManager cacheManager,
+            @Autowired(required = false) RetryTemplate retryTemplate,
             List<DataSourceClient> clients
     ) {
-        return DataSourceClientFactory.of(clients, defaultClientType, cacheManager, enableCaching);
+        return DataSourceClientFactory.of(clients, defaultClientType, cacheManager, retryTemplate, enableCaching);
     }
 
     @Bean

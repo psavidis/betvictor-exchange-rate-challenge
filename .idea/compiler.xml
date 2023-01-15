@@ -7,9 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="exchange-rate-app-client-example" />
+        <module name="exchange-rate-client-impl" />
         <module name="exchange-rate-messaging" />
         <module name="exchange-rate-client" />
-        <module name="exchange-rate-client-impl" />
         <module name="exchange-rate-domain" />
         <module name="exchange-rate-app" />
       </profile>

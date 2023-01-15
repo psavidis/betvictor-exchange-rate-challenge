@@ -40,10 +40,6 @@
 
 ## **RUN PROJECT**
 
-**Async-api Prerequisite**: Run RabbitMQ Docker Command:
-
-`docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management`
-
 To Run the Project, you can use the following options:
 
 * i) Using the IDEA Runner, run Main.class of exchange-rate-app 
@@ -53,6 +49,10 @@ To Run the Project, you can use the following options:
 * ii) mvn spring-boot:run can be used inside exchange-rate-app.
 
 * iii) java -jar ./target/exchange-rate-app-0.0.1-SNAPSHOT.jar in exchange-rate-app Directory
+
+* iv) **Async-api Prerequisite**: Run RabbitMQ Docker Command:
+    `docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management`
+
 
 * The application swagger API can be found at http://localhost:8080/swagger-ui/index.html
 * The application simulating the client swagger API can be found at http://localhost:9080/swagger-ui/index.html

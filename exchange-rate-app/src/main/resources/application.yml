@@ -1,4 +1,7 @@
 application:
+  async-api:
+    enabled: true
+
   datasource-provider:
     enable-caching: true
     default: EXCHANGE_RATE_HOST # DataSourceClientType

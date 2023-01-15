@@ -4,6 +4,7 @@ import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperat
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
  * Messages that Fail will be ignored for now. In real life, they could be re-routed
  * to a dead-letter queue.
  */
+@ConditionalOnProperty(value = "application.async-api.enabled", havingValue = "true")
 @Component
 public class MessageConsumer {
 

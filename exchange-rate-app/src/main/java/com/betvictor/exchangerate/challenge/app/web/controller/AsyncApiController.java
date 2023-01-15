@@ -1,11 +1,13 @@
 package com.betvictor.exchangerate.challenge.app.web.controller;
 
+import com.betvictor.exchangerate.challenge.app.common.condition.AsynApiEnabledCondition;
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueListRequest;
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueRequest;
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ExchangeRateRequest;
 import com.betvictor.exchangerate.challenge.client.DataSourceClientType;
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
 import com.betvictor.exchangerate.challenge.messaging.service.MessagingService;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+@Conditional(AsynApiEnabledCondition.class)
 @RestController
 @RequestMapping("/async")
 public class AsyncApiController {

@@ -1,5 +1,6 @@
 package com.betvictor.exchangerate.challenge.app.messaging.endpoint;
 
+import com.betvictor.exchangerate.challenge.app.common.condition.AsynApiEnabledCondition;
 import com.betvictor.exchangerate.challenge.app.model.service.ExchangeService;
 import com.betvictor.exchangerate.challenge.app.model.service.NotificationService;
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueListRequest;
@@ -8,10 +9,12 @@ import com.betvictor.exchangerate.challenge.app.web.dto.request.ExchangeRateRequ
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ConversionRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeRequest;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
+@Conditional(AsynApiEnabledCondition.class)
 @Component
 public class ExchangeOperationRequestHandler {
 

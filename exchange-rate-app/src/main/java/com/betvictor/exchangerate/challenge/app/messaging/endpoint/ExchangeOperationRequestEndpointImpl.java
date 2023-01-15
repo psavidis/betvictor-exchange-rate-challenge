@@ -1,12 +1,15 @@
 package com.betvictor.exchangerate.challenge.app.messaging.endpoint;
 
+import com.betvictor.exchangerate.challenge.app.common.condition.AsynApiEnabledCondition;
 import com.betvictor.exchangerate.challenge.app.messaging.exception.InvalidEventException;
 import com.betvictor.exchangerate.challenge.messaging.ExchangeOperationRequestEndpoint;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 
+@Conditional(AsynApiEnabledCondition.class)
 @Component
 public class ExchangeOperationRequestEndpointImpl implements ExchangeOperationRequestEndpoint {
 

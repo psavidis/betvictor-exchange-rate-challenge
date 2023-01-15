@@ -6,6 +6,7 @@ import com.betvictor.exchangerate.challenge.messaging.MessagePublisher;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ConversionRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.Metadata;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -19,6 +20,7 @@ import static com.betvictor.exchangerate.challenge.messaging.dto.request.Operati
 /**
  * Service to be used for sending exchange & convert async requests.
  */
+@ConditionalOnProperty(value = "application.async-api.enabled", havingValue = "true")
 @Service
 public class MessagingService {
 

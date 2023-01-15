@@ -10,6 +10,7 @@
 
 package com.betvictor.exchangerate.challenge.app.common.cache;
 
+import com.betvictor.exchangerate.challenge.app.common.condition.DatasourceProvidersCachingEnabledCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.web.bind.annotation.CrossOrigin;

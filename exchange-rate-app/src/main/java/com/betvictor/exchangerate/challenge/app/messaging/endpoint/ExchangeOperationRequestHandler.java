@@ -6,8 +6,8 @@ import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueList
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ConvertValueRequest;
 import com.betvictor.exchangerate.challenge.app.web.dto.request.ExchangeRateRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ConversionRequest;
-import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeRequest;
 import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

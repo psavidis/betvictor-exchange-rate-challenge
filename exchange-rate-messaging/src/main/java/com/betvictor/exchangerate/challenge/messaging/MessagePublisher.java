@@ -7,6 +7,7 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.UUID;
 
 /**
@@ -26,7 +27,7 @@ public class MessagePublisher {
     }
 
     public void send(UUID contextId, OperationType operationType, Metadata metadata, String callback) {
-        var request = new ExchangeOperationRequest(contextId, operationType, metadata, callback);
+        var request = new ExchangeOperationRequest(contextId, operationType, metadata, callback, Instant.now());
 
         template.convertAndSend(this.queue.getName(), request);
 

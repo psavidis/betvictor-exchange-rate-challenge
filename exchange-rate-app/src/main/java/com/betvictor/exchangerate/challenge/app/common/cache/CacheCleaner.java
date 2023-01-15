@@ -24,19 +24,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class CacheCleaner {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CacheCleaner.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CacheCleaner.class);
 
-  @Autowired
-  private CacheManager cacheManager;
+    @Autowired
+    private CacheManager cacheManager;
 
-  /**
-   * Clear all caches.
-   */
-  public void clean() {
-    cacheManager.getCacheNames()
-        .forEach(cacheName -> cacheManager.getCache(cacheName).clear());
+    /**
+     * Clear all caches.
+     */
+    public void clean() {
+        cacheManager.getCacheNames()
+                .forEach(cacheName -> cacheManager.getCache(cacheName).clear());
 
-    LOGGER.info("All Caches have been cleared");
-  }
+        LOGGER.info("All Caches have been cleared");
+    }
 
 }

@@ -36,6 +36,7 @@
 2. Each application node has a consumer that listens for these events and asynchronously will process them one by one.
 3. All async operations receive a mandatory callback url which will be called before the successful processing of the event finished to communicate the results to the client.
 4. If the event processing happens after 60s, the event is **discarded**.
+5. **application.async-api.enabled** controls the feature. If false, the application **does not** require RabbitMQ as dependency.
 
 ## **RUN PROJECT**
 

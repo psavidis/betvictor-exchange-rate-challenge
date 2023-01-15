@@ -7,7 +7,7 @@
     <cluster-name>dev</cluster-name>
 
     <map name="EXCHANGE_RATE_HOST">
-        <time-to-live-seconds>120</time-to-live-seconds>
+        <time-to-live-seconds>60</time-to-live-seconds>
 
         <entry-listeners>
             <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>
@@ -15,7 +15,7 @@
     </map>
 
     <map name="FREE_CURRENCY_API">
-        <time-to-live-seconds>120</time-to-live-seconds>
+        <time-to-live-seconds>60</time-to-live-seconds>
 
         <entry-listeners>
             <entry-listener>com.betvictor.exchangerate.challenge.app.common.cache.CacheLogger</entry-listener>

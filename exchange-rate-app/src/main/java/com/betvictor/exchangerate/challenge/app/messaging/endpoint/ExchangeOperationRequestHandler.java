@@ -30,19 +30,19 @@ public class ExchangeOperationRequestHandler {
         var providerType = Optional.ofNullable(metadata.datasourceProvider());
 
         if (request.isList()) {
-            var response = exchangeService.convert(new ConvertValueRequest(
+            var response = exchangeService.convert(new ConvertValueListRequest(
                     request.value(),
                     request.currency(),
-                    request.toCurrencies().get(0)), providerType);
+                    request.toCurrencies()), providerType);
 
             notificationService.notify(event.contextId(), event.callBackURL(), response);
             return;
         }
 
-        var response = exchangeService.convert(new ConvertValueListRequest(
+        var response = exchangeService.convert(new ConvertValueRequest(
                 request.value(),
                 request.currency(),
-                request.toCurrencies()), providerType);
+                request.toCurrencies().get(0)), providerType);
 
         notificationService.notify(event.contextId(), event.callBackURL(), response);
     }

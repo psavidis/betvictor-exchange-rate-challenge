@@ -2,6 +2,10 @@
 
 ## **DESIGN DECISIONS**
 
+## **Model Basic Class Diagram**
+
+![alt text](diagrams/model_class_diagram.png)
+
 ### **DataSource Clients**
 
 * The Application integrates with the clients using the abstractions of exchange-rate-client
@@ -11,10 +15,8 @@
 * The coupling point of application with client implementations is by scanning any components
   found under client-impl module. Therefore, if you wish to add a new client implementation,
   two steps are required:
-
-  a) Make it a Component (to be scanned by spring)
-  b) Declare its type in DataSourceClientType numeration. That enumeration is also used for
-  configuration of the default client implementation
+  * Make it a Component (to be scanned by spring)
+  * Declare its type in DataSourceClientType numeration. That enumeration is also used for configuration of the default client implementation
 
 ### **CACHE**
 
@@ -30,7 +32,7 @@
 
 **Prerequisite**: Run rabbitMQ docker command:
 
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+`docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management`
 
 To Run the Project, you can use the following options:
 
@@ -40,3 +42,7 @@ To Run the Project, you can use the following options:
 * ii) mvn spring-boot:run can be used inside exchange-rate-app.
 
 * iii) java -jar ./target/exchange-rate-app-0.0.1-SNAPSHOT.jar in exchange-rate-app Directory
+
+* The application swagger API can be found at http://localhost:8080/swagger-ui/index.html
+* The application simulating the client swagger API can be found at http://localhost:9080/swagger-ui/index.html
+* RabbitMQ Management can be monitored at http://localhost:15672/ using guest:guest

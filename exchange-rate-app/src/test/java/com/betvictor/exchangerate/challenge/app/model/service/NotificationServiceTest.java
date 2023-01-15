@@ -40,7 +40,7 @@ public class NotificationServiceTest {
                 CAD, List.of(Monetary.of(ZERO, AED))
         ));
 
-        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));;
+        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));
     }
 
     @Test
@@ -49,7 +49,7 @@ public class NotificationServiceTest {
                 CAD, Monetary.of(ZERO, AED)
         ));
 
-        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));;
+        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class NotificationServiceTest {
                 Monetary.of(ZERO, AED), Monetary.of(ZERO, AED)
         ));
 
-        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));;
+        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class NotificationServiceTest {
                 Monetary.of(ZERO, AED), List.of(Monetary.of(ZERO, AED))
         ));
 
-        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));;
+        verify(restTemplate).postForEntity(anyString(), any(), eq(Void.class));
     }
 
 }

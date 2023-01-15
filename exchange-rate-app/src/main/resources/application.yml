@@ -1,6 +1,6 @@
 application:
   async-api:
-    enabled: true
+    enabled: false
 
   datasource-provider:
     enable-caching: true

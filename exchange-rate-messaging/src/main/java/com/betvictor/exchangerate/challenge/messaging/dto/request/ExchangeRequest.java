@@ -1,4 +1,4 @@
-package com.betvictor.exchangerate.challenge.messaging.dto;
+package com.betvictor.exchangerate.challenge.messaging.dto.request;
 
 import com.betvictor.exchangerate.challenge.domain.SupportedCurrency;
 

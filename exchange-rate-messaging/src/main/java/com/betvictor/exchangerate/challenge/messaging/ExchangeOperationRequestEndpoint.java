@@ -1,7 +1,7 @@
 package com.betvictor.exchangerate.challenge.messaging;
 
 
-import com.betvictor.exchangerate.challenge.messaging.event.ExchangeOperationRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
 
 /**
  * Endpoint called when a new {@link ExchangeOperationRequest} takes place.

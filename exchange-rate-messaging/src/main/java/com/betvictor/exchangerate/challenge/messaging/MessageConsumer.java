@@ -1,6 +1,6 @@
 package com.betvictor.exchangerate.challenge.messaging;
 
-import com.betvictor.exchangerate.challenge.messaging.event.ExchangeOperationRequest;
+import com.betvictor.exchangerate.challenge.messaging.dto.request.ExchangeOperationRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

@@ -1,4 +1,4 @@
-package com.betvictor.exchangerate.challenge.messaging;
+package com.betvictor.exchangerate.challenge.messaging.dto.request;
 
 /**
  * Enumeration that describe operation type for messaging request.

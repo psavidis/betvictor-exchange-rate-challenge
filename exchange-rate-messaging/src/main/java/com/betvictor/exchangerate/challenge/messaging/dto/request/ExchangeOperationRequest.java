@@ -1,13 +1,12 @@
-package com.betvictor.exchangerate.challenge.messaging.event;
+package com.betvictor.exchangerate.challenge.messaging.dto.request;
 
-import com.betvictor.exchangerate.challenge.messaging.Metadata;
-import com.betvictor.exchangerate.challenge.messaging.OperationType;
+import com.betvictor.exchangerate.challenge.messaging.event.Event;
 
 import java.time.Instant;
 import java.util.UUID;
 
-import static com.betvictor.exchangerate.challenge.messaging.OperationType.CONVERSION;
-import static com.betvictor.exchangerate.challenge.messaging.OperationType.EXCHANGE_RATE;
+import static com.betvictor.exchangerate.challenge.messaging.dto.request.OperationType.CONVERSION;
+import static com.betvictor.exchangerate.challenge.messaging.dto.request.OperationType.EXCHANGE_RATE;
 
 /**
  * An Exchange operation request event representation.

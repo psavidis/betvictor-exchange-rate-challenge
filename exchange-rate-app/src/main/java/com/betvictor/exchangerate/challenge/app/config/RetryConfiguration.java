@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.retry.RetryPolicy;
 import org.springframework.retry.policy.ExceptionClassifierRetryPolicy;
-import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.policy.NeverRetryPolicy;
+import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.web.client.HttpStatusCodeException;
 

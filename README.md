@@ -2,7 +2,7 @@
 
 ## **DESIGN DECISIONS**
 
-## **Model Basic Class Diagram**
+## **Basic Model Class Diagram**
 
 ![alt text](diagrams/model_class_diagram.png)
 

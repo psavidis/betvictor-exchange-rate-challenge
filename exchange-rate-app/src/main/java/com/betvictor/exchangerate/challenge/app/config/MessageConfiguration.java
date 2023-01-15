@@ -1,4 +1,4 @@
-package com.betvictor.exchangerate.challenge.messaging.config;
+package com.betvictor.exchangerate.challenge.app.config;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;

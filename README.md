@@ -18,6 +18,8 @@
   * Make it a Component (to be scanned by spring)
   * Declare its type in DataSourceClientType numeration. That enumeration is also used for configuration of the default client implementation
 
+* In All Operations, the client implementation ca be controlled by passing **x-datasource-provider** header to the request. The header receives values from DataSourceClientType enum. If nothing is passed, the application uses the default client type configured via property **default.application.datasource-provider**.
+
 ### **CACHE**
 
 * Hazelcast was selected as a _call-reduction layer_ against the DataSources to cache responses.

@@ -20,17 +20,24 @@
 
 ### **CACHE**
 
-* Hazelcast was selected as a call-reduction layer against the DataSources to cache responses.
+* Hazelcast was selected as a _call-reduction layer_ against the DataSources to cache responses.
   The in-memory data-grid of hazelcast will have at least 1 backup (replication) across other nodes
   so even values fetched by node A will be accessible by node B even if traffic goes through B.
 
 
 * Retention period is configured in hazelcast.xml on each cache and affects how often
-  the APIs might be called to fetch data (see time-to-live-seconds)
+  the APIs might be called to fetch data (_**see**_ time-to-live-seconds)
+
+### **ASYNC API**
+
+1. The implementation of async api is implemented using a RabbitMQ. Event ExchangeOperationRequest is published by all async operations to a configurable queue (exchange-operation-request).
+2. Each application node has a consumer that listens for these events and asynchronously will process them one by one.
+3. All async operations receive a mandatory callback url which will be called before the successful processing of the event finished to communicate the results to the client.
+4. If the event processing happens after 60s, the event is **discarded**.
 
 ## **RUN PROJECT**
 
-**Prerequisite**: Run rabbitMQ docker command:
+**Prerequisite**: Run RabbitMQ Docker Command:
 
 `docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management`
 
